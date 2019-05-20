@@ -1,0 +1,50 @@
+#include <iostream>
+#include <array>
+#include <vector>
+using namespace std;
+
+int main(int argc, const char * argv[])
+{
+	array<int, 10> myArray;
+
+	myArray = { 1,2,3,4,5,6,7,8,9,10 };
+		
+		cout << "1st element: " << myArray[0] << endl;
+		cout << "1st element: " << myArray.at(0) << endl; //myArray.at(0) has the same output as myArray[0]
+		cout << "1st element: " << myArray.front() << endl; //.front() outputs the first element in the array
+		cout << "9th element: " << myArray.back() << endl; //.back() outputs the last element in the array
+		cout << "Size of the array: " << myArray.size() << endl; //.size() outputs the size of the array (number of elements in the array)
+		cout << "Is array empty? " << myArray.empty() << endl; //.empty() outputs a boolean value corresponding with whether the array is empty or not (1true/0false)
+		
+	cout << endl;
+
+	for (int i = 0; i < myArray.size(); i++) //outputs the size of the array using "i" as an index 
+	{
+		cout << myArray[i] << " "; 	
+	}
+
+	cout << endl;
+
+	for (int x : myArray) //outputs the size of the array using "x" as the actual elements of the array
+	{
+		cout << x << " ";  
+	}
+
+	cout << endl;
+
+	for (auto x : myArray) //outputs the size of the array without specifying the type of element (using "x" as the elements of the array)
+	{
+		cout << x << " ";
+	}
+	
+	cout << endl;
+	
+	for (auto itr = myArray.begin();itr!= myArray.end(); itr++)
+	{
+		cout << itr << endl;
+	}
+	//POINTERS**
+	//DEREFERENCE**
+	system("pause");
+	return 0;
+}
