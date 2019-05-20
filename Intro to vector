@@ -1,0 +1,67 @@
+#include <iostream>
+#include <array>
+#include <vector>
+using namespace std;
+
+int main(int argc, const char * argv[])
+{
+	vector<int> myVec = { 1,2,3,4,5 };
+
+	cout << "Size of vector: " << myVec.size() << endl;
+
+	cout << endl;
+
+	cout << "First element in vector: " << myVec.front() << endl;
+
+	cout << endl;
+
+	cout << "First element in vector: " << myVec.at(0) << endl;
+
+	cout << endl;
+
+	cout << "First element in vector: " << myVec[0] << endl;
+
+	cout << endl;
+	
+	cout << "Last element in vector: " << myVec.back() << endl;
+	
+	cout << endl;
+	
+	cout << "Is vector empty? " << myVec.empty() << endl;
+	//myVec.reserve(20); //reserves, i.e EXTENDS CAPACITY (not size) of vector
+
+	cout << endl;
+
+	cout << "Capacity of vector: " << myVec.capacity() << endl;
+
+	cout << endl;
+
+	cout << "Size of vector: " << myVec.size() << endl; //notice how SIZE remains the same after capacity is increased through extra RESERVED space
+
+	cout << endl;
+
+	myVec.push_back(20); //inserts the element in the parentheses () into the back/last position of the vector
+
+	cout << "Back element: " << myVec.back() << endl;
+
+	cout << endl;
+
+	cout << "Size: " << myVec.size() << endl; //notice how after the push_back, the back element is now 20 and the size of the vector has INCREASED to 6
+
+	cout << endl;
+
+	cout << "Capacity of vector: " << myVec.capacity() << endl; //similarly, capacity of vector has INCREASED to 7 
+
+	cout << endl;
+
+	myVec.insert(myVec.begin(), 100); //inserts 100 at the beginning/front/start of the vector
+	myVec.insert(myVec.begin()+3, 100); //inserts 100 IN BETWEEN 3rd and 4th elements of the vector
+
+	for (auto x : myVec)
+		cout << x << endl;
+
+	cout << endl;
+
+	system("pause");
+	return 0;
+}
