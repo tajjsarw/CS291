@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+//Tajrian Sarwar CS291 Spring 2019
+//task one [working with cout & cin]
+int main()
+{
+	int a, b, c;
+	cout << "Please input first integer: " << endl;
+	cin >> a;
+	cout << "Please input second integer: " << endl;
+	cin >> b;
+	cout << "Please input third integer: " << endl;
+	cin >> c;
+	int sum = (a + b + c);
+	cout << "The sum of the three integers is: " << sum << endl;
+	system("pause");
+	return 0;
+}
