@@ -1,0 +1,23 @@
+#include<iostream>
+#include<array>
+#include<vector>
+using namespace std;
+
+int main(int argc, const char * argv[])
+{
+	int val = 5;
+	int *ptr; //initialize with * asterisk
+	ptr = &val; //assign with & ampersand
+	cout << *ptr << endl; //prints value of address (5 in this case)
+	cout << ptr << endl; //prints actual address
+	cout << &val << endl; //address
+	cout << &ptr << endl; //address
+
+	*ptr = 10;
+	cout << *ptr << endl; //prints value of address (it's been changed from 5 to 10)
+	cout << val << endl; //value
+	cout << &val << endl; //address of value
+
+	system("pause");
+	return 0;
+}
