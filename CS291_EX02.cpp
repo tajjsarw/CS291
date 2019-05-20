@@ -34,7 +34,7 @@ int main()
 	displayVec(vec); //4
 	cout << endl;
 
-	cout << &vec; //6 -- &vec prints out a random series of numbers and letters. error?
+	cout << &vec; // 6 -- prints address
 	cout << endl;
 	vec.insert(4, 5);
 	displayVec(vec);
