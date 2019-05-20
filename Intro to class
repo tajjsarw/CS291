@@ -1,0 +1,38 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Rectangle
+{
+	double width; //private member
+	double length;
+public: //access specifier
+	void setWidth(double);
+	void setLength(double);
+	double getArea();
+};
+
+void Rectangle::setWidth(double w)
+{
+	width = w;
+}
+void Rectangle::setLength(double l)
+{
+	length = l;
+}
+double Rectangle::getArea()
+{
+	return width * length;
+}
+
+int main(int argc, const char * argv[])
+{
+	Rectangle a, b, c, d;
+	a.setWidth(20);
+	a.setLength(25);
+
+	cout << "Area is " << a.getArea << endl;
+
+	system("pause");
+	return 0;
+}
