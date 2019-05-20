@@ -1,0 +1,317 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+class Song
+{
+private:
+	int songID;
+	string title;
+	string artist;
+	string album;
+	int year;
+public:
+	Song() //default constructor (Set all int = 0, string = "")
+	{
+		songID = 0;
+		title = "";
+		artist = "";
+		album = "";
+		year = 0;
+	}
+	Song(int aID, string aTitle, string anArtist, string anAlbum, int aYear) //parameterized constructor
+	{
+		songID = aID;
+		title = aTitle;
+		artist = anArtist;
+		album = anAlbum;
+		year = aYear;
+	}
+
+	int getSongID() const;
+	string getTitle() const;
+	string getArtist() const;
+	string getAlbum() const;
+	int getYearReleased() const;
+	void setSongID(int newSongID);
+	void setTitle(string newTitle);
+	void setArtist(string newArtist);
+	void setAlbum(string newAlbum);
+	void setYear(int newYear);
+
+	friend ostream& operator<<(ostream& out, const Song& sng); //to get cout to accept an object from Song
+};
+
+	void Song::setSongID(int aID)
+	{
+		songID = aID;
+	}
+	void Song::setTitle(string aTitle)
+	{
+		title = aTitle;
+	}
+	void Song::setArtist(string anArtist)
+	{
+		artist = anArtist;
+	}
+	void Song::setAlbum(string anAlbum)
+	{
+		album = anAlbum;
+	}
+	void Song::setYear(int aYear)
+	{
+		year = aYear;
+	}
+	int Song::getSongID()const
+	{
+		return songID; 
+	}
+	string Song::getTitle()const
+	{
+		return title;
+	}
+	string Song::getArtist()const
+	{
+		return artist;
+	}
+	string Song::getAlbum()const
+	{
+		return album;
+	}
+	int Song::getYearReleased()const
+	{
+		return year;
+	}
+	
+	ostream& operator<<(ostream& out, const Song& sng) //to get cout to accept an object from Song
+	{
+		 out << "Title: " << sng.getTitle() 
+			 << "\nArtist: " << sng.getArtist() 
+			 << "\nAlbum: " << sng.getAlbum() 
+			 << "\nYear: " << sng.getYearReleased() << "\n" 
+			 << endl;
+		 return out;
+	} 
+
+int main (int argc, char*const argv[])
+{
+	vector<Song>songList = { };
+	int input;
+	int a = 0;
+	int *ptr; //so that int a can be changed dynamically
+	ptr = &a;
+	Song song1;
+	Song song2;
+	Song song3;
+	Song song4;
+	Song song5;
+	
+	while (a != 1) //while a is not equal to 1, keep running the following code:
+	{
+		cout << "**My Song List**" << endl;
+		cout << "(1) Display list" << endl;
+		cout << "(2) Display a song" << endl;
+		cout << "(3) Insert new song" << endl;
+		cout << "(4) Exit" << endl
+			<< endl;
+		cout << "Enter your choice:" << endl;
+
+		cin >> input;
+
+		if (input == 1) //display list 
+		{
+			for (auto x : songList)
+			{
+				cout << "Title: " << x.getTitle() << "\n"
+					<< "Artist: " << x.getArtist() << "\n"
+					<< "Album: " << x.getAlbum() << "\n"
+					<< "Year: " << x.getYearReleased() << "\n"
+					<< endl;
+			}
+		}
+		if (input == 2) //display a song
+		{
+			cout << "Enter the ID of the song that you would like to play: " << endl;
+			int inputID;
+			cin >> inputID;
+			cout << endl;
+
+			if (inputID <= songList.size()) //if inputID is less than or equal to the size of songList, 
+				cout << songList.at(inputID - 1);//print the element of songList at inputID - 1
+			else
+				cout << "Song ID not found" << endl << endl;
+
+		}
+		if (input == 3) //insert new song
+		{
+			cin.ignore();
+			cout << "Enter information for your new song" << endl;
+
+			int inputSongID1 = 0;
+			string inputTitle1 = "";
+			string inputArtist1 = "";
+			string inputAlbum1 = "";
+			int inputYear1 = 0;
+
+			cout << "\nEnter song ID: ";
+			cin >> inputSongID1;
+			cin.ignore(); //ignore spaces and \n (enter) which are entered through cin
+
+			cout << "\nEnter title: ";
+			getline(cin, inputTitle1);
+
+			cout << "\nEnter artist: ";
+			getline(cin, inputArtist1);
+
+			cout << "\nEnter album: ";
+			getline(cin, inputAlbum1);
+
+			cout << "\nEnter year: ";
+			cin >> inputYear1;
+			cin.ignore();
+
+			song1.setSongID(inputSongID1);
+			song1.setTitle(inputTitle1);
+			song1.setArtist(inputArtist1);
+			song1.setAlbum(inputAlbum1);
+			song1.setYear(inputYear1);
+			songList.push_back(song1);
+
+			cout << "\nNew Song is added!\n" << endl;
+
+			int inputSongID2 = 0;
+			string inputTitle2 = "";
+			string inputArtist2 = "";
+			string inputAlbum2 = "";
+			int inputYear2 = 0;
+
+			cout << "\nEnter song ID: ";
+			cin >> inputSongID2;
+			cin.ignore();
+
+			cout << "\nEnter title: ";
+			getline(cin, inputTitle2);
+
+			cout << "\nEnter artist: ";
+			getline(cin, inputArtist2);
+
+			cout << "\nEnter album: ";
+			getline(cin, inputAlbum2);
+
+			cout << "\nEnter year: ";
+			cin >> inputYear2;
+			cin.ignore();
+
+			song2.setSongID(inputSongID2);
+			song2.setTitle(inputTitle2);
+			song2.setArtist(inputArtist2);
+			song2.setAlbum(inputAlbum2);
+			song2.setYear(inputYear2);
+			songList.push_back(song2);
+
+			cout << "\nNew Song is added!\n" << endl;
+
+			int inputSongID3 = 0;
+			string inputTitle3 = "";
+			string inputArtist3 = "";
+			string inputAlbum3 = "";
+			int inputYear3 = 0;
+
+			cout << "\nEnter song ID: ";
+			cin >> inputSongID3;
+			cin.ignore();
+
+			cout << "\nEnter title: ";
+			getline(cin, inputTitle3);
+
+			cout << "\nEnter artist: ";
+			getline(cin, inputArtist3);
+
+			cout << "\nEnter album: ";
+			getline(cin, inputAlbum3);
+
+			cout << "\nEnter year: ";
+			cin >> inputYear3;
+			cin.ignore();
+
+			song3.setSongID(inputSongID3);
+			song3.setTitle(inputTitle3);
+			song3.setArtist(inputArtist3);
+			song3.setAlbum(inputAlbum3);
+			song3.setYear(inputYear3);
+			songList.push_back(song3);
+
+			cout << "\nNew Song is added!\n" << endl;
+
+			int inputSongID4 = 0;
+			string inputTitle4 = "";
+			string inputArtist4 = "";
+			string inputAlbum4 = "";
+			int inputYear4 = 0;
+
+			cout << "\nEnter song ID: ";
+			cin >> inputSongID4;
+			cin.ignore();
+
+			cout << "\nEnter title: ";
+			getline(cin, inputTitle4);
+
+			cout << "\nEnter artist: ";
+			getline(cin, inputArtist4);
+
+			cout << "\nEnter album: ";
+			getline(cin, inputAlbum4);
+
+			cout << "\nEnter year: ";
+			cin >> inputYear4;
+			cin.ignore();
+
+			song4.setSongID(inputSongID4);
+			song4.setTitle(inputTitle4);
+			song4.setArtist(inputArtist4);
+			song4.setAlbum(inputAlbum4);
+			song4.setYear(inputYear4);
+			songList.push_back(song4);
+
+			cout << "\nNew Song is added!\n" << endl;
+
+			int inputSongID5 = 0;
+			string inputTitle5 = "";
+			string inputArtist5 = "";
+			string inputAlbum5 = "";
+			int inputYear5 = 0;
+
+			cout << "\nEnter song ID: ";
+			cin >> inputSongID5;
+			cin.ignore();
+
+			cout << "\nEnter title: ";
+			getline(cin, inputTitle5);
+
+			cout << "\nEnter artist: ";
+			getline(cin, inputArtist5);
+
+			cout << "\nEnter album: ";
+			getline(cin, inputAlbum5);
+
+			cout << "\nEnter year: ";
+			cin >> inputYear5;
+			cin.ignore();
+
+			song5.setSongID(inputSongID5);
+			song5.setTitle(inputTitle5);
+			song5.setArtist(inputArtist5);
+			song5.setAlbum(inputAlbum5);
+			song5.setYear(inputYear5);
+			songList.push_back(song5);
+
+			cout << "\nNew Song is added!\n" << endl;
+		}
+		if (input == 4) //exit
+			*ptr = 1; //assigns the value 1 to int a, effectively stopping the while loop
+	}
+	system("pause");
+	return 0;
+}
