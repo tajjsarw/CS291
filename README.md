@@ -1,3 +1,3 @@
 # CS291
 Projects and assignments for my spring semester class CS291
-Most significant project is "class Song"
+Most notable project is "class Song"
